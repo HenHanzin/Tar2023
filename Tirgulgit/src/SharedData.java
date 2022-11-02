@@ -1,5 +1,11 @@
 import java.util.ArrayList;
 
+
+/**
+ * @author USER
+ * sharing the data between the master to the rest of the group
+ *
+ */
 public class SharedData 
 {
 	private ArrayList<Integer> array;
@@ -10,6 +16,7 @@ public class SharedData
 	/**
 	 * @param array
 	 * @param b
+	 * entering the array and his size 
 	 */
 	public SharedData(ArrayList<Integer> array, int b) {
 		
@@ -19,6 +26,7 @@ public class SharedData
 
 	/**
 	 * @return
+	 * return array of booleans 
 	 */
 	public boolean[] getWinArray() 
 	{
@@ -27,6 +35,7 @@ public class SharedData
 
 	/**
 	 * @param winArray
+	 * setting the boolean array 
 	 */
 	public void setWinArray(boolean [] winArray) 
 	{
@@ -35,6 +44,7 @@ public class SharedData
 
 	/**
 	 * @return
+	 * return the final array list
 	 */
 	public ArrayList<Integer> getArray() 
 	{
@@ -43,6 +53,7 @@ public class SharedData
 
 	/**
 	 * @return
+	 * getting the size of the array
 	 */
 	public int getB() 
 	{
@@ -51,6 +62,7 @@ public class SharedData
 
 	/**
 	 * @return
+	 * return status flag : T\F
 	 */
 	public boolean getFlag() 
 	{
@@ -59,6 +71,7 @@ public class SharedData
 
 	/**
 	 * @param flag
+	 * setting the status flag 
 	 */
 	public void setFlag(boolean flag) {
 		this.flag = flag;
