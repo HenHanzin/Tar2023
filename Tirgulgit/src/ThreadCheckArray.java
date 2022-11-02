@@ -5,7 +5,7 @@ public class ThreadCheckArray implements Runnable
 	private boolean flag;
 	private boolean [] winArray;
 	SharedData sd;
-	ArrayList<Integer> array=new ArrayList<Integer>();
+	ArrayList<Integer> array;
 	int b;
 	
 	public ThreadCheckArray(SharedData sd) 
@@ -28,7 +28,7 @@ public class ThreadCheckArray implements Runnable
 		}	
 		if (n == 1)
 		{
-			if(b == 0 || b == array.indexOf(n-1))
+			if(b == 0 || b == array.get(n-1))
 			{
 				flag = true;
 				synchronized (sd) 
@@ -36,12 +36,12 @@ public class ThreadCheckArray implements Runnable
 					sd.setFlag(true);
 				}			
 			}
-			if (b == array.indexOf(n-1))
+			if (b == array.get(n-1))
 				winArray[n-1] = true;
 			return;
 		}
 		
-		rec(n-1, b - array.indexOf(n-1));
+		rec(n-1, b - array.get(n-1));
 		if (flag)
 			winArray[n-1] = true;
 		synchronized (sd) 
@@ -55,11 +55,11 @@ public class ThreadCheckArray implements Runnable
 	public void run() {
 		if (array.size() != 1)
 			if (Thread.currentThread().getName().equals("thread1"))
-				rec(array.size()-1, b - array.indexOf(array.size()-1));
+				rec(array.size()-1, b - array.get(array.size()-1));
 			else 
 				rec(array.size()-1, b);
 		if (array.size() == 1)
-			if (b == array.indexOf(0) && !flag)
+			if (b == array.get(0) && !flag)
 			{
 				winArray[0] = true;
 				flag = true;
